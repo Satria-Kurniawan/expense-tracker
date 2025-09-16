@@ -4,14 +4,14 @@ import react from "@vitejs/plugin-react-swc"
 import { defineConfig } from "vite"
 import { VitePWA } from "vite-plugin-pwa"
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
     VitePWA({
-      registerType: "autoUpdate",
-      manifestFilename: "manifest.webmanifest",
+      registerType: "autoUpdate", // update otomatis SW
+      includeAssets: ["favicon.svg", "robots.txt"], // asset tambahan
+      manifestFilename: "manifest.webmanifest", // pastikan accessible
       manifest: {
         name: "Bye-Bye Money",
         short_name: "ByeMoney",
@@ -24,17 +24,17 @@ export default defineConfig({
         start_url: "/",
         icons: [
           {
-            src: "/pwa-icon.png",
+            src: "/pwa-192x192.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "/pwa-icon.png",
+            src: "/pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
           },
           {
-            src: "/pwa-icon.png",
+            src: "/pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "any maskable",
@@ -42,7 +42,12 @@ export default defineConfig({
         ],
       },
       workbox: {
+        // Biar SPA tetap bisa jalan di route selain "/"
         navigateFallback: "/index.html",
+        globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+      },
+      devOptions: {
+        enabled: true, // supaya bisa test PWA di dev mode
       },
     }),
   ],
