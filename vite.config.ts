@@ -25,17 +25,14 @@ export default defineConfig({
         icons: [
           {
             src: "/pwa-192x192.png",
-            sizes: "any",
             type: "image/png",
           },
           {
             src: "/pwa-512x512.png",
-            sizes: "any",
             type: "image/png",
           },
           {
             src: "/pwa-512x512.png",
-            sizes: "any",
             type: "image/png",
             purpose: "any maskable",
           },
