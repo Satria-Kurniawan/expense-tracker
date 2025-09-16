@@ -3,7 +3,7 @@ import {
   type LoginCredentials,
   type RegisterData,
   type User,
-} from "@/types/auth"
+} from "@/types/auth.ts"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import axios, { AxiosError } from "axios"
 import { useNavigate } from "react-router"
