@@ -11,34 +11,38 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: "autoUpdate",
-      // Konfigurasi ini akan membuat file manifest.json
+      manifestFilename: "manifest.webmanifest",
       manifest: {
         name: "Bye-Bye Money",
         short_name: "ByeMoney",
-        description: "Deskripsi singkat tentang aplikasi PWA Anda.",
-        theme_color: "#ffffff", // Warna tema untuk UI browser
-        background_color: "#ffffff", // Warna untuk splash screen
-        display: "standalone", // Membuat aplikasi terasa seperti aplikasi native
+        description:
+          "Aplikasi expense tracker sederhana untuk mencatat pemasukan, memantau pengeluaran, dan mengelola keuangan sehari-hari.",
+        theme_color: "#ffffff",
+        background_color: "#ffffff",
+        display: "standalone",
         scope: "/",
         start_url: "/",
         icons: [
           {
-            src: "pwa-192x192.png", // Path ke ikon di folder public
+            src: "/pwa-192x192.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "pwa-512x512.png", // Path ke ikon di folder public
+            src: "/pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
           },
           {
-            src: "pwa-512x512.png",
+            src: "/pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
-            purpose: "any maskable", // Penting agar ikon pas di semua bentuk
+            purpose: "any maskable",
           },
         ],
+      },
+      workbox: {
+        navigateFallback: "/",
       },
     }),
   ],
