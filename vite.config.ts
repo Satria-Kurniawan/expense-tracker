@@ -40,6 +40,7 @@ export default defineConfig({
             purpose: "any maskable",
           },
         ],
+        related_applications: [],
       },
       workbox: {
         // Biar SPA tetap bisa jalan di route selain "/"
