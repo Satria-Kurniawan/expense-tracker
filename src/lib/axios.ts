@@ -1,11 +1,11 @@
 import axios, { AxiosError } from "axios"
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
+axios.defaults.withCredentials = true
 
 const api = axios.create({
   baseURL: apiBaseUrl,
   withCredentials: true,
-  withXSRFToken: true,
 })
 
 api.interceptors.response.use(
