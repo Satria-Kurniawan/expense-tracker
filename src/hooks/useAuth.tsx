@@ -13,7 +13,9 @@ import { useNavigate } from "react-router"
 // Fungsi untuk mengambil data user jika sudah login (cookie valid)
 const fetchUser = async (): Promise<User | null> => {
   try {
-    const response = await api.get<User>("/api/auth/profile")
+    const response = await api.get<User>("/api/auth/profile", {
+      withCredentials: true,
+    })
     return response.data
   } catch (error) {
     if (axios.isAxiosError(error) && error.response?.status === 401) {
