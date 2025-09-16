@@ -11,7 +11,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate", // update otomatis SW
       includeAssets: ["favicon.svg", "robots.txt"], // asset tambahan
-      manifestFilename: "manifest.webmanifest", // pastikan accessible
+      manifestFilename: "manifest.json",
       manifest: {
         name: "Bye-Bye Money",
         short_name: "ByeMoney",
